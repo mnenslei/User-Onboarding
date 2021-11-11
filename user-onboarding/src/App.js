@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import * as yup from 'yup';
 import Form from './Components/Form';
-import schema from './Validation/formSchema';
+import formSchema from './Validation/formSchema';
 
 const initialFormValues = {
   username: '',
@@ -21,7 +21,7 @@ const initialFormErrors = {
 function App() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
 
   const handleSubmit = () => {
     axios.post('https://reqres.in/api/users', formValues)
@@ -32,7 +32,7 @@ function App() {
   }
 
   const validate = (name, value) => {
-    yup.reach(schema, name)
+    yup.reach(formSchema, name)
     .validate(value)
     .then(() => setFormErrors({ ...formErrors, [name]: '' }))
     .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0] }))
@@ -47,7 +47,7 @@ function App() {
     <div className="App">
      <Form values={formValues} change={handleChange} errors={formErrors} submit={handleSubmit} />{users.map(user => {
        <div key={user.id}>
-         <p>{user.createdAt}</p>
+         <p>{user.createdA}</p>
          <p>{user.email}</p>
       </div>
      })}

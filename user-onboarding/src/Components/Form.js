@@ -26,7 +26,7 @@ const Form = (props) => {
                 <label> Name:
                     <input 
                         type='text'
-                        name='name'
+                        name='username'
                         value={username}
                         onChange={onChange}
                     />
@@ -55,7 +55,7 @@ const Form = (props) => {
                         onChange={onChange}
                     />
                 </label>
-                <input type='submit' value='Create a Friend' />
+                <input className='submit' type='submit' value='Create a Friend' />
             </form>
         </div>
     )
