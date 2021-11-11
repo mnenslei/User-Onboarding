@@ -1,7 +1,7 @@
 import React from "react";
 
 const Form = (props) => {
-    const { change, submit, errors } = props;
+    const { change, submit, errors, disabled } = props;
     const { username, email, password, tos } = props.values;
 
     const onChange = (e) => {
@@ -39,7 +39,7 @@ const Form = (props) => {
                         onChange={onChange}
                     />
                 </label>
-                <label> Password
+                <label> Password:
                     <input
                         type='password'
                         name='password'
@@ -55,7 +55,7 @@ const Form = (props) => {
                         onChange={onChange}
                     />
                 </label>
-                <input className='submit' type='submit' value='Create a Friend' />
+                <input className='submit' type='submit' value='Create a Friend' disabled={disabled} />
             </form>
         </div>
     )

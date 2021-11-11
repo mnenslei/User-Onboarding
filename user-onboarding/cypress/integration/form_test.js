@@ -42,7 +42,7 @@ describe('User Onboarding App', () => {
     
     it('checkbox can be checked', () => {
         createAFriend()
-            .should('not.be.disabled')
+            .should('be.disabled')
     })
 
     describe('adding a new friend', () => {
@@ -54,14 +54,14 @@ describe('User Onboarding App', () => {
             createAFriend().click();
         })
     })
-    describe('submitting a new friend', () => {
-        it('can not use create a friend submit button to make new friend', () => {
-            nameInput().should('have.value', '');
-            emailInput().should('have.value', '');
-            passwordInput().should('have.value', '');
-            createAFriend().should('not.be.disabled');
+    describe('adding a new friend', () => {
+        it('can use create a friend submit button to make new friend', () => {
+            nameInput().type('John');
+            emailInput().type('John@apple.com');
+            tosInput().check();
+            createAFriend().should('be.disabled');
         })
-    })    
+    })
 
 
 })
